@@ -1,0 +1,58 @@
+<div class="container listar">
+  <div class="row mt-5">
+    
+    <div class="col-12 mb-3 text-center">
+      <h1>Pokemon TCG</h1>
+    </div>
+
+    <div class="col-12">
+      <form [formGroup]="formSearch">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Enter the name to search" aria-label="Enter the name to search" aria-describedby="btn-search" formControlName="name">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" id="btn-search" (click)="procurarPokemon()">Search</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    
+    <div class="col-12">
+      <div class="row">
+
+        <div class="col-12 col-md-6 col-xl-4 mt-3 h-100" *ngFor="let pokemon of pokemons">
+          <div class="card link" [routerLink]="['/detalhe/' + pokemon.id]">
+
+            <div class="card-header d-flex justify-content-between">
+              <div>
+                {{pokemon.name}}
+              </div>
+              <div>
+                <strong>{{pokemon.id}}</strong>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <div class="row">
+                <div class="col-12">
+                  <img class="img-fluid" [src]="pokemon.imageUrlHiRes">
+                </div>
+
+                <div class="col-12 d-flex mt-3">
+                  <div>
+                    <strong>Types:</strong>
+                  </div>
+                  <div class="pl-2">
+                    <span *ngFor="let type of pokemon.types">{{type}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,104 @@
+<div class="container detalhe">
+  <div class="row mt-5">
+
+    <div class="col-12 mb-3 text-center">
+      <h1>Pokemon TCG</h1>
+    </div>
+
+    <div class="col-12 mb-5" *ngIf="pokemon">
+      <div class="card">
+
+        <div class="card-header d-flex justify-content-between">
+          <div>
+            {{pokemon.name}}
+          </div>
+          <div>
+            <strong>{{pokemon.id}}</strong>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class="row">
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <img class="img-fluid" [src]="pokemon.imageUrlHiRes">
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-8">
+
+              <div class="row">
+                <div class="col-12">
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex">
+                      <div>
+                        <strong>Types:</strong>
+                      </div>
+                      <div class="pl-2">
+                        <span *ngFor="let type of pokemon.types">{{type}}</span>
+                      </div>
+                    </li>
+                    <li class="list-group-item">
+                      <div class="row">
+                        <div class="col-12 mb-3">
+                          <strong>Attacks:</strong>
+                        </div>
+
+                        <ul class="list-group list-group-flush">
+                          <li class="list-group-item attack mb-2" *ngFor="let attack of pokemon.attacks">
+                            <p>
+                              <strong>Name:</strong>
+                              {{attack.name}}
+                            </p>
+    
+                            <p>
+                              <strong>Description:</strong>
+                              {{attack.text}}
+                            </p>
+    
+                            <p>
+                              <strong>Damage:</strong>
+                              {{attack.damage}}
+                            </p>
+    
+                            <p>
+                              <strong>Mana Cost:</strong>
+                              {{attack.convertedEnergyCost}}
+                            </p>
+
+                          </li>
+                        </ul>
+
+                      </div>
+                    </li>
+                    <li class="list-group-item d-flex">
+                      <div>
+                        <strong>Resistances:</strong>
+                      </div>
+                      <div class="pl-2">
+                        <span *ngFor="let resistance of pokemon.resistances">{{resistance.type}} {{resistance.value}}</span>
+                      </div>
+                    </li>
+                    <li class="list-group-item d-flex">
+                      <div>
+                        <strong>Weaknesses:</strong>
+                      </div>
+                      <div class="pl-2">
+                        <span *ngFor="let weakness of pokemon.weaknesses">{{weakness.type}} {{weakness.value}}</span>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+
+  </div>
+</div>

@@ -1,0 +1,8 @@
+.listar {
+    .link {
+        cursor: pointer;
+        &:focus {
+            outline: none;
+        }
+    }
+}
